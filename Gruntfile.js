@@ -14,6 +14,7 @@ module.exports = function (grunt) {
                     'src/gm/directives/**/*.js',
                     'src/gm/filters/**/*.js',
                     'src/gm/services/**/*.js',
+                    'src/gm/places/directives/**/*.js',
                     'src/gm/gm.suffix'
                 ],
                 dest: 'dist/angularjs-google-maps.js'

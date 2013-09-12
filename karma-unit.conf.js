@@ -15,6 +15,7 @@ module.exports = function(config) {
         files: [
             'components/angular/angular.js',
             'components/angular-mocks/angular-mocks.js',
+            'http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places',
             'dist/angularjs-google-maps.js',
             'test/unit/**/*.js'
         ],
