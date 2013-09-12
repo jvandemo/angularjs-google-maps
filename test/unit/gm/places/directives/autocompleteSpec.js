@@ -16,9 +16,9 @@ describe('Autocomplete directive', function () {
         scope = $rootScope.$new();
     });
 
-    function createDirective(options, events) {
+    function createDirective(gmOptions) {
         scope.autocompleteModel = undefined;
-        scope.gmOptions = options || {};
+        scope.gmOptions = gmOptions || {};
         element = $compile('<div><input type="text" gm-places-autocomplete="gmOptions" ng-model="autocompleteModel" /></div>')(scope);
     }
 
