@@ -5,14 +5,39 @@
 // Config
 angular.module('gm.config', [])
     .value('gm.config', {
-        debug: true
-    });
+        debug: true,
+        placess: {
+            autocomplete: {}
+        }
+    })
+    .run(['$window', function($window){
+
+        // Check for dependencies
+        if(
+            angular.isUndefined($window.google) ||
+            angular.isUndefined($window.google.maps)
+            ){
+            throw new Error('Google Maps API not available, please make sure the Google Maps library is loaded before the AngularJS Google Maps library is loaded');
+        }
+    }]);
 
 // Places modules
 angular.module('gm.places.directives', []);
 angular.module('gm.places', [
     'gm.places.directives'
-]);
+])
+    .run(['$window', function($window){
+
+        // Check for dependencies
+        if(
+            angular.isUndefined($window.google) ||
+            angular.isUndefined($window.google.maps) ||
+            angular.isUndefined($window.google.maps.places) ||
+            angular.isUndefined($window.google.maps.places.Autocomplete)
+            ){
+            throw new Error('Google Maps API not available, please make sure the Google Maps library is loaded before the AngularJS Google Maps library is loaded');
+        }
+    }]);
 
 // Modules
 angular.module('gm.directives', []);
