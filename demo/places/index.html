@@ -3,10 +3,12 @@
 <head>
     <title></title>
     <script src="../../components/angular/angular.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
     <script src="../../dist/angularjs-google-maps.js"></script>
     <script src="app.js"></script>
 </head>
 <body ng-app="places" ng-controller="appCtrl">
     <h1>Google maps places demo page</h1>
+    <input type="text" gm-places-autocomplete="autocompleteOptions" ng-model="autocompleteModel" />
 </body>
 </html>
