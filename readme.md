@@ -2,7 +2,7 @@
 
 AngularJS library for working with Google Maps
 
-# Change log
+## Change log
 
 ### 0.1.0
 
