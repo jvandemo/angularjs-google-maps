@@ -1,5 +1,5 @@
 angular.module('gm.places')
-    .directive('gmPlacesAutocomplete', ['$window', 'gm.config', function($window, gmConfig){
+    .directive('gmPlacesAutocomplete', ['$rootScope', 'gm.config', function($rootScope, gmConfig){
 
         var configOptions = (gmConfig.places && gmConfig.places.autocomplete) || {};
 
@@ -10,27 +10,32 @@ angular.module('gm.places')
             require : ['gmPlacesAutocomplete', '?ngModel'],
             controller: ['$scope', '$element', '$attrs', '$transclude', function($scope, $element, $attrs, $transclude){
 
-                // Assemble options
-                var options = angular.extend({}, configOptions, $scope.$eval($attrs.gmOptions));
+                this._options = angular.extend({}, configOptions, $scope.$eval($attrs.gmOptions));
+                this._element = $element[0];
+                this._api = undefined;
 
-                var element = $element[0];
-
-                this._autocomplete = undefined;
-
+                // Define properties
                 Object.defineProperties(this, {
+                    element: {
+                        get: function(){
+                            return this._element;
+                        },
+                        configurable: false
+                    },
                     api: {
                         get: function(){
-                            return this._autocomplete;
-                        }
+                            return this._api;
+                        },
+                        configurable: false
                     }
                 });
 
                 try {
-                    this._autocomplete = new google.maps.places.Autocomplete(element);
+                    this._api = new google.maps.places.Autocomplete(this._element);
                 }
                 catch (err)
                 {
-                    if(gmConfig.debug) console.log('Could not instantiate autocomplete directive: ' + err.message);
+                    if(gmConfig.debug) console.log('Could not instantiate gmPlacesAutocomplete directive: ' + err.message);
                 }
 
             }],
@@ -40,10 +45,27 @@ angular.module('gm.places')
                 var gmPlacesAutocompleteController = controllers[0];
                 var ngModelController = controllers[1];
 
-                // Update model if there is one
+                // Set initial model value if a model is defined
                 if (ngModelController) {
                     ngModelController.$setViewValue(gmPlacesAutocompleteController);
                 }
+
+                // Listen to place_changed event
+                google.maps.event.addListener(gmPlacesAutocompleteController.api, 'place_changed',
+                    (function(scope, iElement, iAttrs, gmPlacesAutocompleteController, ngModelController, $rootScope){
+                        return function(){
+
+                            // Update model if there is one
+                            if (ngModelController) {
+                                ngModelController.$setViewValue(gmPlacesAutocompleteController);
+                            }
+
+                            // Broadcast event
+                            $rootScope.$broadcast('gmPlacesAutocomplete::placeChanged', gmPlacesAutocompleteController);
+                        };
+                    })(scope, iElement, iAttrs, gmPlacesAutocompleteController, ngModelController, $rootScope)
+                );
+
             }
         };
 
