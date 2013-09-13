@@ -8,7 +8,7 @@ The `gmPlacesAutocomplete` directive turns an input into an input that listens f
 
     <input type="text" gm-places-autocomplete="options" ng-model="modelName" />
     
-- *options*: optional, options you wish to pass to the directive (currently unused)
+- *options*: optional, options you wish to pass to the [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) service. See the [`AutocompleteOptions` specifications](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#AutocompleteOptions) for a [complete list of available options](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#AutocompleteOptions).
 - *modelName*: optional, name of the model you wish to assign the resulting object to
     
 As soon as the user selects a place, the following happens:
@@ -48,7 +48,7 @@ The model provides access to the [`google.maps.places.Autocomplete`](https://dev
     });
     
     
-Check out the [Autocomplete documentation](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) for a complete list of available methods.
+Check out the [Autocomplete documentation](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) for a [complete list of available methods](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete).
 
 ## Change log
 
