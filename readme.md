@@ -21,18 +21,34 @@ As soon as the user selects a place, the following happens:
 Example controller:
 
     angular.module('places', ['gm'])
-      .controller('placesAutocompleteCtrl', ['$scope', function($scope){
+        .controller('placesAutocompleteCtrl', ['$scope', function($scope){
       
-          // Define options
-          $scope.options = {};
-
-          // Listen to change event
-          $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
+            // Define options
+            $scope.options = {};
+            
+            // Listen to change event
+            $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
               console.log('Place changed');
               console.dir(arguments);
-          })
+            });
   
-      }]);
+        }]);
+      
+The model provides access to the [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) service API so you can do things like:
+
+    // Listen to change event
+    $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
+      
+        // Get place
+        console.dir(modelName.api.getPlace());
+        
+        // Get bounds
+        console.dir(modelName.api.getBounds());
+      
+    });
+    
+    
+Check out the [Autocomplete documentation](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) for a complete list of available methods.
 
 ## Change log
 
