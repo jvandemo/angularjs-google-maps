@@ -32,5 +32,9 @@ describe('Autocomplete directive', function () {
         expect(scope.autocompleteModel.api).toBeDefined();
     });
 
+    it('should have an api that is an instance of google.maps.places.Autocomplete', function () {
+        createDirective();
+        expect(scope.autocompleteModel.api instanceof google.maps.places.Autocomplete).toBeTruthy();
+    });
 
 });
