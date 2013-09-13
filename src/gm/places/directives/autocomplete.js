@@ -29,7 +29,7 @@ angular.module('gm.places')
                 });
 
                 try {
-                    this._api = new google.maps.places.Autocomplete(this._element);
+                    this._api = new google.maps.places.Autocomplete(this._element, this._options);
                 }
                 catch (err)
                 {
