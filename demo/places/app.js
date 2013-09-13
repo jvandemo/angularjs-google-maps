@@ -7,6 +7,7 @@ angular.module('places', ['gm'])
         $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
             console.log('Place changed');
             console.dir(arguments);
+            console.dir($scope.autocompleteModel.api.getPlace());
         })
 
     }]);
