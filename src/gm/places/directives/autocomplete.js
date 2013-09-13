@@ -1,9 +1,7 @@
 angular.module('gm.places')
-    .directive('gmPlacesAutocomplete', ['$rootScope', 'gm.config', function($rootScope, gmConfig){
+    .directive('gmPlacesAutocomplete', ['$rootScope', 'gm.config', 'logger', function($rootScope, gmConfig, logger){
 
         var configOptions = (gmConfig.places && gmConfig.places.autocomplete) || {};
-
-        console.log('Using config options', configOptions);
 
         return {
             restrict: 'AEC',
@@ -35,7 +33,7 @@ angular.module('gm.places')
                 }
                 catch (err)
                 {
-                    if(gmConfig.debug) console.log('Could not instantiate gmPlacesAutocomplete directive: ' + err.message);
+                    if(gmConfig.debug) logger.log('Could not instantiate gmPlacesAutocomplete directive: ' + err.message);
                 }
 
             }],
