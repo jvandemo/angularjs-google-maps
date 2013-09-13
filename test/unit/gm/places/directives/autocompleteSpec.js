@@ -10,11 +10,8 @@ describe('Autocomplete directive', function () {
     beforeEach(inject(function (_$compile_, _$rootScope_) {
         $rootScope = _$rootScope_;
         $compile = _$compile_;
-    }));
-
-    beforeEach(function () {
         scope = $rootScope.$new();
-    });
+    }));
 
     function createDirective(gmOptions) {
         scope.autocompleteModel = undefined;
@@ -35,6 +32,17 @@ describe('Autocomplete directive', function () {
     it('should have an api that is an instance of google.maps.places.Autocomplete', function () {
         createDirective();
         expect(scope.autocompleteModel.api instanceof google.maps.places.Autocomplete).toBeTruthy();
+    });
+
+    it('should broadcast a gmPlacesAutocomplete::placeChanged event when place is changed', function () {
+        createDirective();
+        var callback = {
+            stub : function(){}
+        }
+        spyOn(callback, 'stub');
+        scope.$on('gmPlacesAutocomplete::placeChanged', callback.stub);
+        google.maps.event.trigger(scope.autocompleteModel.api, 'place_changed');
+        expect(callback.stub).toHaveBeenCalled();
     });
 
 });
