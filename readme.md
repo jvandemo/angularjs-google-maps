@@ -133,3 +133,4 @@ Currently working on a set of easy-to-use hierarchical directives that allow a u
 - Added installation instructions to readme
 - Registered with Bower
 - Added live demo on plnkr
+- Added roadmap
