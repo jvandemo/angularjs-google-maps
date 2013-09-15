@@ -68,3 +68,6 @@ There is also a [places autocomplete demo](https://github.com/jvandemo/angularjs
 
 - Updated gmPlacesAutocomplete directive to immediately assign original Google API to model
 
+### 0.3.1
+
+- Updated gmPlacesAutocomplete linking function to use public api of controller
