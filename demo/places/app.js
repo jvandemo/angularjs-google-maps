@@ -6,8 +6,7 @@ angular.module('places', ['gm'])
         console.log('placesAutocompleteCtrl loaded');
         $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
             console.log('Place changed');
-            console.dir(arguments);
-            console.dir($scope.autocompleteModel.api.getPlace());
+            console.dir($scope.autocompleteModel);
         })
 
     }]);

@@ -24,14 +24,9 @@ describe('Autocomplete directive', function () {
         expect(scope.autocompleteModel).toBeDefined();
     });
 
-    it('should assign an api property to the scope model', function () {
+    it('should create a model that is an instance of google.maps.places.Autocomplete', function () {
         createDirective();
-        expect(scope.autocompleteModel.api).toBeDefined();
-    });
-
-    it('should have an api that is an instance of google.maps.places.Autocomplete', function () {
-        createDirective();
-        expect(scope.autocompleteModel.api instanceof google.maps.places.Autocomplete).toBeTruthy();
+        expect(scope.autocompleteModel instanceof google.maps.places.Autocomplete).toBeTruthy();
     });
 
     it('should broadcast a gmPlacesAutocomplete::placeChanged event when place is changed', function () {
@@ -41,7 +36,7 @@ describe('Autocomplete directive', function () {
         }
         spyOn(callback, 'stub');
         scope.$on('gmPlacesAutocomplete::placeChanged', callback.stub);
-        google.maps.event.trigger(scope.autocompleteModel.api, 'place_changed');
+        google.maps.event.trigger(scope.autocompleteModel, 'place_changed');
         expect(callback.stub).toHaveBeenCalled();
     });
 

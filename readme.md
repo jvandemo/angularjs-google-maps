@@ -11,14 +11,9 @@ The `gmPlacesAutocomplete` directive turns an input into an input that listens f
     <input type="text" gm-places-autocomplete="autocompleteOptions" ng-model="autocompleteModel" />
 
 - *autocompleteOptions*: optional, options you wish to pass to the [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) service. See the [`AutocompleteOptions` specifications](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#AutocompleteOptions) for a [complete list of available options](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#AutocompleteOptions).
-- *autocompleteModel*: optional, name of the model you wish to assign the resulting object to
+- *autocompleteModel*: optional, name of the model you wish to assign the resulting [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) object to
 
-As soon as the user selects a place, the following happens:
-
-- the `ngModel` is assigned an object with the following properties:
-  + *element*: the current element
-  + *api*: provides access to the [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) service
-- a `gmPlacesAutocomplete::placeChanged` event is broadcasted
+When the place changes, a `gmPlacesAutocomplete::placeChanged` event is broadcasted.
 
 Example controller:
 
@@ -30,8 +25,7 @@ Example controller:
 
             // Listen to change event
             $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
-              console.log('Place changed');
-              console.dir(arguments);
+              console.log('Place has changed');
             });
 
         }]);
@@ -42,10 +36,10 @@ The model provides access to the [`google.maps.places.Autocomplete`](https://dev
     $scope.$on('gmPlacesAutocomplete::placeChanged', function(){
 
         // Get place
-        console.dir(autocompleteModel.api.getPlace());
+        console.dir(autocompleteModel.getPlace());
 
         // Get bounds
-        console.dir(autocompleteModel.api.getBounds());
+        console.dir(autocompleteModel.getBounds());
 
     });
 

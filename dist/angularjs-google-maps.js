@@ -127,7 +127,7 @@ angular.module('gm.services')
 
                 // Set initial model value if a model is defined
                 if (ngModelController) {
-                    ngModelController.$setViewValue(gmPlacesAutocompleteController);
+                    ngModelController.$setViewValue(gmPlacesAutocompleteController._api);
                 }
 
                 // Listen to place_changed event
@@ -137,7 +137,7 @@ angular.module('gm.services')
 
                             // Update model if there is one
                             if (ngModelController) {
-                                ngModelController.$setViewValue(gmPlacesAutocompleteController);
+                                ngModelController.$setViewValue(gmPlacesAutocompleteController._api);
                             }
 
                             // Broadcast event
