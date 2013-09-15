@@ -76,6 +76,34 @@ Check out the [Autocomplete documentation](https://developers.google.com/maps/do
 - [Places autocomplete demo page](https://github.com/jvandemo/angularjs-google-maps/tree/master/demo/places) in the demo directory
 - [Extract lat and lng from an autocomplete input](http://plnkr.co/edit/iHa94x38uMd8VkBs148D?p=preview) on Plnkr
 
+## Roadmap
+
+Currently working on a set of easy-to-use hierarchical directives that allow a user to build a map semantically like this in pure markup:
+
+    <!-- Draw map -->
+    <gm-map>
+    
+        <!-- Add marker to map -->
+        <gm-marker="{lat: x, lng: y}">
+        
+            <!-- Draw a circle around the marker -->
+            <gm-circle="{radius: 1000}"></gm-circle>
+            
+            <!-- Show an infoWindow when marker is clicked -->
+            <gm-info-window>
+                Content of the info window
+            </gm-info-window>
+            
+        </gm-marker>
+        
+        <!-- Add second marker to map -->
+        <gm-marker="{lat: x2, lng: y2}"></gm-marker>
+        
+        <!-- Add third marker to map -->
+        <gm-marker="{lat: x3, lng: y3}"></gm-marker>
+        
+    </gm-map>
+
 ## Change log
 
 ### 0.1.0
