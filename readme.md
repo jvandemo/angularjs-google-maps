@@ -9,18 +9,18 @@ Unlike other Google Maps libraries, this library is heavily focused on providing
 Download the code from this repository or use [Bower](http://bower.io):
 
     bower install angularjs-google-maps
-    
+
 ## Include it in your app
 
 Make sure to load the AngularJS library and the Google Maps API:
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-    
+
 Then load the AngularJS Google Maps library:
 
     <script src="bower/angularjs-google-maps/dist/angularjs-google-maps.js"></script>
-    
+
 Finally add the `gm` module as a dependency to your AngularJS app:
 
     angular.module('yourApp', ['gm']);
@@ -29,16 +29,18 @@ That's it! You can now start adding Google Maps directives to your markup.
 
 ## The Google Maps Places Autocomplete directive
 
-The `gmPlacesAutocomplete` directive turns an input into an input that listens for user input and provides place predictions based on the input:
+The `gmPlacesAutocomplete` directive turns an input into an input that listens for user input and provides place predictions based on the input.
+
+### The markup
 
     <input type="text" gm-places-autocomplete="autocompleteOptions" ng-model="autocompleteModel" />
 
 - *autocompleteOptions*: optional, options you wish to pass to the [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) service. See the [`AutocompleteOptions` specifications](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#AutocompleteOptions) for a [complete list of available options](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#AutocompleteOptions).
 - *autocompleteModel*: optional, name of the model you wish to assign the resulting [`google.maps.places.Autocomplete`](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) object to
 
-When the place changes, a `gmPlacesAutocomplete::placeChanged` event is broadcasted.
+### The controller
 
-Example controller:
+When the place changes, a `gmPlacesAutocomplete::placeChanged` event is broadcasted:
 
     angular.module('places', ['gm'])
         .controller('placesAutocompleteCtrl', ['$scope', function($scope){
@@ -69,7 +71,10 @@ The model provides access to the [`google.maps.places.Autocomplete`](https://dev
 
 Check out the [Autocomplete documentation](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete) for a [complete list of available methods](https://developers.google.com/maps/documentation/javascript/reference?hl=nl#Autocomplete).
 
-There is also a [places autocomplete demo](https://github.com/jvandemo/angularjs-google-maps/tree/master/demo/places) available in the `demo` directory.
+### Demo
+
+- [Places autocomplete demo page](https://github.com/jvandemo/angularjs-google-maps/tree/master/demo/places) in the demo directory
+- [Extract lat and lng from an autocomplete input](http://plnkr.co/edit/iHa94x38uMd8VkBs148D?p=preview) on Plnkr
 
 ## Change log
 
@@ -94,3 +99,9 @@ There is also a [places autocomplete demo](https://github.com/jvandemo/angularjs
 ### 0.3.1
 
 - Updated gmPlacesAutocomplete linking function to use public api of controller
+
+### 0.4.0
+
+- Added installation instructions to readme
+- Registered with Bower
+- Added live demo on plnkr
