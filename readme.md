@@ -64,3 +64,7 @@ There is also a [places autocomplete demo](https://github.com/jvandemo/angularjs
 - Added options to gmPlacesAutocomplete directive
 - Added unit tests for event broadcasting
 
+### 0.3.0
+
+- Updated gmPlacesAutocomplete directive to immediately assign original Google API to model
+
