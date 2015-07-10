@@ -4,6 +4,12 @@ AngularJS library for working with Google Maps.
 
 Unlike other Google Maps libraries, this library is heavily focused on providing **easy-to-use AngularJS directives** that require little to no programming knowledge.
 
+## Update 2015-07
+
+As of 2015, it is recommended to use the official [Google Maps web components](http://googlewebcomponents.github.io/google-map/components/google-map/).
+
+However, this library repository will remain available for projects depending on it.
+
 ## Install the library
 
 Download the code from this repository or use [Bower](http://bower.io):
