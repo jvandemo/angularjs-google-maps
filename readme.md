@@ -6,7 +6,7 @@ Unlike other Google Maps libraries, this library is heavily focused on providing
 
 ## Update 2015-07
 
-As of 2015, it is recommended to use the official [Google Maps web components](http://googlewebcomponents.github.io/google-map/components/google-map/).
+As of 2015, it is recommended to use the official [Google Maps web components](http://googlewebcomponents.github.io/google-map/components/google-map/) or the [AngularJS Google Maps directives](https://github.com/allenhwkim/angularjs-google-maps) by Allen Kim.
 
 However, this library repository will remain available for projects depending on it.
 
