@@ -1,6 +1,7 @@
 {
   "name": "angularjs-google-maps",
   "version": "0.4.0",
+  "main": "dist/angularjs-google-maps.js",
   "dependencies": {
     "angular": "~1.0.8"
   },
