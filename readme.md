@@ -140,3 +140,7 @@ Currently working on a set of easy-to-use hierarchical directives that allow a u
 - Registered with Bower
 - Added live demo on plnkr
 - Added roadmap
+
+### 0.5.0
+
+- Added main to bower.json
